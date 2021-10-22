@@ -1,0 +1,20 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: my-admin-front-deployment
+  namespace: bloodbank
+spec: 
+  replicas: 1
+  strategy: 
+    type: Recreate 
+  selector: 
+    matchLabels: 
+      app: admin-front
+  template: 
+    metadata: 
+      labels: 
+        app: admin-front
+    spec: 
+      containers: 
+      - name: admin-view
+        image: admin-view:dev

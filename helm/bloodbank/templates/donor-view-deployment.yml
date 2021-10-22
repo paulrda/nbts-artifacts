@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: my-donor-front-deployment
+  namespace: bloodbank
+spec: 
+  replicas: 1
+  strategy: 
+    type: Recreate 
+  selector: 
+    matchLabels: 
+      app: donor-front
+  template: 
+    metadata: 
+      labels: 
+        app: donor-front
+    spec: 
+      containers: 
+      - name: blood-donor-view
+        image: donor-view:dev
+        imagePullPolicy: Never
