@@ -1,7 +1,7 @@
 apiVersion: apps/v1 
 kind: Deployment 
 metadata: 
-  name: my-donor-front-deployment
+  name: my-admin-front-deployment
   namespace: bloodbank
 spec: 
   replicas: 1
@@ -9,13 +9,12 @@ spec:
     type: Recreate 
   selector: 
     matchLabels: 
-      app: donor-front
+      app: admin-front
   template: 
     metadata: 
       labels: 
-        app: donor-front
+        app: admin-front
     spec: 
       containers: 
-      - name: blood-donor-view
-        image: donor-view:dev
-        imagePullPolicy: Never
+      - name: admin-view
+        image: admin-view:dev

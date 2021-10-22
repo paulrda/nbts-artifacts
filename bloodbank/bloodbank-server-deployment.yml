@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bloodbank-server-deployment
+  namespace: bloodbank
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bloodbank-server
+    spec:
+      containers:
+      - name: bloodbank-server
+        image: bloodbank-server:dev
+        ports:
+        - containerPort: 8080
+  selector:
+    matchLabels:
+      app: bloodbank-server

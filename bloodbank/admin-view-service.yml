@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: donor-front-service
+  name: admin-front-service
   namespace: bloodbank
   labels:
     env: dev
-    app: donor-front-service
+    app: admin-front-service
 spec:
   type: NodePort
   ports:
     - port: 8080
       targetPort: 80
-      nodePort: 30007
+      nodePort: 30006
   selector:
-    app: donor-front
+    app: admin-front
